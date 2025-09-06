@@ -1,4 +1,3 @@
-Here’s a professional and clean **README** you can use for your GitHub repository for this Fashion MNIST project:
 
 ---
 
