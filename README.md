@@ -3,119 +3,109 @@
 
 # Fashion MNIST Classification with PyTorch
 
-This repository contains a deep learning project using PyTorch to classify images from the **Fashion MNIST dataset**. The model is trained on grayscale images of fashion items and predicts the correct category.
+---
 
-## Dataset
+# Fashion-MNIST Classification with PyTorch
 
-The dataset is a CSV format where:
-
-* **Label**: Class of the fashion item (0–9).
-* **Pixels**: 784 columns representing the 28×28 grayscale image.
-
-Example:
-
-| label | pixel1 | pixel2 | ... | pixel784 |
-| ----- | ------ | ------ | --- | -------- |
-| 0     | 9      | 0      | ... | 0        |
-| 1     | 7      | 0      | ... | 0        |
-
-**Classes**:
-
-0. T-shirt/top
-1. Trouser
-2. Pullover
-3. Dress
-4. Coat
-5. Sandal
-6. Shirt
-7. Sneaker
-8. Bag
-9. Ankle boot
-
-## Model Architecture
-
-The current model is a **Convolutional Neural Network (CNN)**:
-
-* **Conv Layers**:
-
-  * `Conv2d(1, 32, 3)` → `ReLU` → `MaxPool2d(2,2)`
-  * `Conv2d(32, 64, 3)` → `ReLU` → `MaxPool2d(2,2)`
-* **Fully Connected Layers**:
-
-  * Flatten → `Linear(64*7*7, 128)` → `ReLU` → `Linear(128, 10)`
-
-The CNN takes input images reshaped to `[batch_size, 1, 28, 28]`.
-
-## Training
-
-* **Loss Function**: `CrossEntropyLoss`
-* **Optimizer**: `Adam` with learning rate `0.001`
-* **Epochs**: 200–500 (configurable)
-
-Example training loop:
-
-```python
-for batch_features, batch_labels in train_loader:
-    batch_features = batch_features.view(-1, 1, 28, 28)
-    outputs = model(batch_features)
-    loss = criterion(outputs, batch_labels)
-
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
-```
-
-## Evaluation
-
-The model is evaluated on the test dataset:
-
-```python
-total = 0
-correct = 0
-
-with torch.no_grad():
-    for batch_features, batch_labels in test_loader:
-        batch_features = batch_features.view(-1, 1, 28, 28)
-        outputs = model(batch_features)
-        _, predicted = torch.max(outputs, 1)
-        total += batch_labels.shape[0]
-        correct += (predicted == batch_labels).sum().item()
-
-print(correct / total)
-```
-
-**Test Accuracy**: \~0.8267 (82.67%)
-
-## Usage
-
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd fashion-mnist-pytorch
-```
-
-2. Install dependencies:
-
-```bash
-pip install torch torchvision pandas
-```
-
-3. Train the model:
-
-```bash
-python train.py
-```
-
-4. Evaluate the model:
-
-```bash
-python evaluate.py
-```
-
-## License
-
-This project is open-source under the MIT License.
+This project implements a deep learning model using **PyTorch** to classify images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist).
+It was developed and trained in **Google Colab**, achieving strong accuracy on both training and test datasets.
 
 ---
+
+## 📌 Project Overview
+
+The goal of this project is to build and evaluate a neural network that classifies grayscale images of clothing items into one of **10 categories** (e.g., T-shirt, trousers, shoes).
+The dataset is more challenging than the original MNIST digits dataset, making it a great benchmark for image classification.
+
+---
+
+## 🚀 Technologies Used
+
+* **Python 3.10+**
+* **PyTorch** for deep learning
+* **Torchvision** for dataset handling and transformations
+* **Google Colab** for training and experimentation
+* **NumPy / Pandas** for numerical and data handling
+* **Matplotlib** for visualization
+
+---
+
+## 📊 Dataset
+
+* **Fashion-MNIST** (60,000 training images, 10,000 test images)
+* Each image: `28x28` grayscale
+* Classes (10 categories):
+
+  1. T-shirt/top
+  2. Trouser
+  3. Pullover
+  4. Dress
+  5. Coat
+  6. Sandal
+  7. Shirt
+  8. Sneaker
+  9. Bag
+  10. Ankle boot
+
+---
+
+## 🏗️ Model Architecture
+
+The neural network consists of:
+
+* Input Layer: 784 neurons (flattened 28×28 pixels)
+* Hidden Layers: Fully connected layers with ReLU activation
+* Dropout for regularization
+* Output Layer: 10 neurons (one per class) with Softmax
+
+Optimizer & Loss:
+
+* **Optimizer**: Adam
+* **Loss Function**: CrossEntropyLoss
+
+---
+
+## ⚡ Training & Results
+
+* **Train Accuracy**: `93.90%`
+* **Test Accuracy**: `88.62%`
+* Training was done on GPU (Colab) for faster convergence.
+* Accuracy and loss curves show good generalization with minimal overfitting.
+
+---
+
+## 🔧 Installation & Usage
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/fashion-mnist-pytorch.git
+cd fashion-mnist-pytorch
+pip install -r requirements.txt
+```
+
+Run the notebook:
+
+```bash
+jupyter notebook Fashion-MNIST.ipynb
+```
+
+Or open directly in **Google Colab**:
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1YDVmsVD8zkdDh5lqumA_HtIh_WqH10FC?usp=sharing)
+
+---
+
+## 📈 Example Predictions
+
+The model correctly classifies most samples, though challenging categories (e.g., Shirt vs. T-shirt) sometimes cause confusion.
+
+---
+
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
 
