@@ -5,7 +5,6 @@
 
 
 This project implements a deep learning model using **PyTorch** to classify images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist).
-It was developed and trained in **Google Colab**, achieving strong accuracy on both training and test datasets.
 
 ---
 
@@ -21,7 +20,6 @@ The dataset is more challenging than the original MNIST digits dataset, making i
 * **Python 3.10+**
 * **PyTorch** for deep learning
 * **Torchvision** for dataset handling and transformations
-* **Google Colab** for training and experimentation
 * **NumPy / Pandas** for numerical and data handling
 * **Matplotlib** for visualization
 
@@ -71,27 +69,6 @@ Optimizer & Loss:
 
 ---
 
-## 🔧 Installation & Usage
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/your-username/fashion-mnist-pytorch.git
-cd fashion-mnist-pytorch
-pip install -r requirements.txt
-```
-
-Run the notebook:
-
-```bash
-jupyter notebook Fashion-MNIST.ipynb
-```
-
-Or open directly in **Google Colab**:
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1YDVmsVD8zkdDh5lqumA_HtIh_WqH10FC?usp=sharing)
-
----
-
 ## 📈 Example Predictions
 
 The model correctly classifies most samples, though challenging categories (e.g., Shirt vs. T-shirt) sometimes cause confusion.
@@ -99,10 +76,5 @@ The model correctly classifies most samples, though challenging categories (e.g.
 ---
 
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
----
 
 
