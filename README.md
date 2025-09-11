@@ -1,11 +1,8 @@
 
 ---
 
-# Fashion MNIST Classification with PyTorch
-
----
-
 # Fashion-MNIST Classification with PyTorch
+
 
 This project implements a deep learning model using **PyTorch** to classify images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist).
 It was developed and trained in **Google Colab**, achieving strong accuracy on both training and test datasets.
